@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-require('dotenv').config()
 const PORT = process.env.PORT || 4111;
-const  sequelize = require('./models/index') 
+const Sequelize = require('./sequelize')
+
 app.use('/', async (req,res) => { 
     
     sequelize.authenticate().then(async () => {
