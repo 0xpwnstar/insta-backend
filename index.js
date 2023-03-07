@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const models = require('./models')
-require('dotenv').config()
-const PORT = process.env.PORT || 4111;
-console.log(PORT)
+const config = require('./config')
+const PORT = config.port || 4111;
+
 
 
 app.use('/', async (req,res) => { 
