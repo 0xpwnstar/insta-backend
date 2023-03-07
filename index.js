@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const models = require('./models')
 require('dotenv').config()
-console.log(__dirname)
+console.log(process.env.NAME)
 const PORT = process.env.PORT || 4111;
 require('dotenv').config();
 
