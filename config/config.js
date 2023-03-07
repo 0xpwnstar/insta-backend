@@ -1,11 +1,11 @@
-require('dotenv').config();
+require('dotenv').config({path: '../.env'});
 
 module.exports= {
   "development": {
-    "username": "admin",
-    "password": "C7508tan!",
+    "username": process.env.NAME,
+    "password": process.env.PASSWORD,
     "database": "insta_backend",
-    "host": "database-2.cluster-ro-cyrq7glzuytr.ap-south-1.rds.amazonaws.com",
+    "host": process.env.HOST,
     "dialect": "mysql"
   }
 }
