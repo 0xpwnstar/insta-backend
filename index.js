@@ -6,10 +6,10 @@ const PORT = process.env.PORT || 4111;
 app.use('/', async (req,res) => { 
     const sequelize = new Sequelize(
         'insta_backend',
-        'admin',
-        'C7508tan!',
+        process.env.NAME,
+        process.env.PASSWORD,
          {
-           host: 'database-2.cluster-ro-cyrq7glzuytr.ap-south-1.rds.amazonaws.com',
+           host: process.env.HOST,
            dialect: 'mysql'
          }
     );
