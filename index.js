@@ -18,6 +18,7 @@ app.use('/', async => {
     }).catch((error) => {
         console.error('Unable to connect to the database: ', error);
     });
+    sequelize.close();
 }) 
 app.use('/api', require('./routes/index'));
 app.listen(PORT, console.log("Listenening on ",  PORT) );
