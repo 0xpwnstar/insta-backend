@@ -1,4 +1,4 @@
-require('dotenv').config({path:__dirname+'/../../.env'});
+require('dotenv').config({path:__dirname+'/../../../.env'});
 console.log(process.env.NAME)
 module.exports= {
   "development": {
