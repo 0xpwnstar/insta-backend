@@ -1,4 +1,4 @@
-require('dotenv').config({path:'/home/ubuntu/insta-backend/.env'});
+require('dotenv').config({path:'~/insta-backend/.env'});
 console.log(process.env.NAME)
 module.exports= {
   "development": {
