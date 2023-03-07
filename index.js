@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const models = require('./models')
 require('dotenv').config()
-console.log(process.env.NAME)
 const PORT = process.env.PORT || 4111;
-require('dotenv').config();
+console.log(PORT)
+
 
 app.use('/', async (req,res) => { 
     const result = await models.sequelize.query("show databases;")
