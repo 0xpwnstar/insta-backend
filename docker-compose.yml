@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  insta:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: insta
+    ports:
+      - PORT:PORT
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
