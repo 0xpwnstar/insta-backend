@@ -1,12 +1,23 @@
 const express = require('express');
 const app = express();
 require('dotenv').config()
-const sequelize = require('./models/sequelize');
+const Sequelize = require('sequelize')
+const sequelize = new Sequelize(
+    'insta_backend',
+    'admin',
+    'C7508tan!',
+     {
+       host: 'database-2.cluster-ro-cyrq7glzuytr.ap-south-1.rds.amazonaws.com',
+       dialect: 'mysql'
+     }
+);
 const PORT = process.env.PORT || 4111;
-sequelize.authenticate().then(() => {
-    console.log('Connection has been established')
-}).catch((error) => {
-    console.log(error)
-})
+app.use('/', async => { 
+    sequelize.authenticate().then(() => {
+        console.log('Connection has been established successfully.');
+    }).catch((error) => {
+        console.error('Unable to connect to the database: ', error);
+    });
+}) 
 app.use('/api', require('./routes/index'));
 app.listen(PORT, console.log("Listenening on ",  PORT) );
