@@ -13,14 +13,15 @@ app.use('/', async (req,res) => {
            dialect: 'mysql'
          }
     );
-    sequelize.authenticate().then(() => {
+    sequelize.authenticate().then(async () => {
         console.log('Connection has been established successfully.');
         res.json({"Success":1})
         res.send()
+        await sequelize.close()
     }).catch((error) => {
         console.error('Unable to connect to the database: ', error);
     });
-    sequelize.close();
+
 }) 
 app.use('/api', require('./routes/index'));
 app.listen(PORT, console.log("Listenening on ",  PORT) );
