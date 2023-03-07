@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 4111;
 require('dotenv').config();
 
 app.use('/', async (req,res) => { 
-    const result = await sequelize.query("show databases;")
+    const result = await models.query("show databases;")
     res.json({result})
 }) 
 app.use('/api', require('./routes/index'));
