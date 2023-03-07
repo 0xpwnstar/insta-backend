@@ -8,9 +8,7 @@ const PORT = config.port || 4111;
 app.use('/', async (req,res) => { 
     const insert = await models.sequelize.sync()
     const result = await models.sequelize.query("show tables;")
-    res.json({result,
-        insert
-    })
+    res.json({result})
 }) 
 app.use('/api', require('./routes/index'));
 app.listen(PORT, console.log("Listenening on ",  PORT) );
