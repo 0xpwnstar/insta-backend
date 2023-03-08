@@ -52,7 +52,8 @@ exports.signup = async (req,res) => {
 }
 
 exports.authorize = async (req, res) => {
-    res.send(req.cookie)
+    const decoded = jwt.verify(req.cookies.authcookie, config.jwtsecret)
+    res.send(decoded)
 }
 
 exports.login = async (req,res) => {
