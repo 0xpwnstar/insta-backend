@@ -1,10 +1,10 @@
 const crypto = require('crypto')
-const User = require('../models/user')
+const models= require('../models')
 
 
 
 exports.signup = async (req,res) => {
-    console.log(await User.findAll())
+    console.log(models)
     // res.json({users})
     res.send("Ok")
 }
