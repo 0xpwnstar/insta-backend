@@ -51,6 +51,10 @@ exports.signup = async (req,res) => {
     
 }
 
+export.authorize = async (req, res) => {
+    res.send(req.cookie)
+}
+
 exports.login = async (req,res) => {
     const body = req.body
     if (!body || !body.email ){
