@@ -22,9 +22,9 @@ exports.signup = async (req,res) => {
     let salt;
     let password;
     if (!exists){
-        salt = crypto.randomBytes(12).toString('hex').slice(0,12);
+        salt = await crypto.randomBytes(12).toString('hex').slice(0,12);
         if (body.password) {
-            password = crypto.createHmac('sha256',salt).update(body.password).digest('hex');
+            password = await crypto.createHmac('sha256',salt).update(body.password).digest('hex');
         }else{
             res.send({
                 Success: false,
