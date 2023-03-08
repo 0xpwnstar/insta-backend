@@ -3,6 +3,6 @@ const models = require('../models')
 
 
 
-exports.signup =async (req,res) => {
+exports.signup = (req,res) => {
     res.send(models)
 }
