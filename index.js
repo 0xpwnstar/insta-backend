@@ -10,7 +10,7 @@ app.use('/', async (req,res) => {
     const result = await models.sequelize.query("show tables;")
     // res.json({result})
 }) 
-app.use('/api', require('./routes'));
+app.use('/api', require('./routes/index'));
 models.sequelize.sync({}).then(() => {
     app.listen(PORT, console.log("Listenening on ",  PORT) );
 })
