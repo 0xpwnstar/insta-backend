@@ -4,7 +4,19 @@ const models= require('../models')
 
 
 exports.signup = async (req,res) => {
-    console.log(models.models.user,models.user)
-    // res.json({users})
-    res.send("Ok")
+    const body = req.body
+    console.log(await models.user)
+    if (!body.email || !body){
+        res.send({
+            Success: false
+        })
+    }
+    const exists = await models.user.findAll(
+        where: {
+            email: {
+                [models.sequelize.Op.eq]: body.email
+            }
+        }
+    )
+    res.send(exists)
 }
