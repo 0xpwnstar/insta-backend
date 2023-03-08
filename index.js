@@ -8,7 +8,7 @@ const PORT = config.port || 4111;
 app.use('/', async (req,res) => { 
     const insert = await models.sequelize.sync()
     const result = await models.sequelize.query("show tables;")
-    res.json({result})
+    // res.json({result})
 }) 
 app.use('/api', require('./routes'));
 models.sequelize.sync({}).then(() => {
