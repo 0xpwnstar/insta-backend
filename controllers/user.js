@@ -22,6 +22,7 @@ exports.signup = async (req,res) => {
     let salt;
     let password;
     let user = null;
+    console.log(!exists)
     if (!exists){
         console.log("here")
         salt = await crypto.randomBytes(12).toString('hex').slice(0,12);
