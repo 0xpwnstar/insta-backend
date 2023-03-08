@@ -11,4 +11,4 @@ services:
     volumes:
       - .:/usr/src/app
     env_file:
-    - ./a.env
+    - ./.env

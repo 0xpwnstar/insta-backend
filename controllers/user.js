@@ -11,12 +11,12 @@ exports.signup = async (req,res) => {
             Success: false
         })
     }
-    const exists = await models.user.findAll(
+    const exists = await models.user.findAll({
         where: {
             email: {
                 [models.sequelize.Op.eq]: body.email
             }
         }
-    )
+})
     res.send(exists)
 }
