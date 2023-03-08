@@ -39,8 +39,8 @@ exports.signup = async (req,res) => {
             firstname: body.firstname,
             lastname: body.lastname,
             email: body.email,
-            password,
-            salt
+            password: password,
+            salt: salt
         })
     }
     res.json({user})
