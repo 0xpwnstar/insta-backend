@@ -3,6 +3,8 @@ const models = require('../models')
 
 
 
-exports.signup = (req,res) => {
-    res.send(models)
+exports.signup = async (req,res) => {
+    const users = await models.User.findAll()
+    res.json({users})
+    res.send()
 }
