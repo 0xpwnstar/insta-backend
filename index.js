@@ -11,4 +11,6 @@ app.use('/', async (req,res) => {
     res.json({result})
 }) 
 app.use('/api', require('./routes/index'));
-app.listen(PORT, console.log("Listenening on ",  PORT) );
+models.sequelize.sync({}).then(() => {
+    app.listen(PORT, console.log("Listenening on ",  PORT) );
+})
