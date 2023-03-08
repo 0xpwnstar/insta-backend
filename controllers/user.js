@@ -4,5 +4,5 @@ const models = require('../models')
 
 
 exports.signup = (req,res) => {
-    res.send("models")
+    res.send(models)
 }
