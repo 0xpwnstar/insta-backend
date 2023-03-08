@@ -61,7 +61,7 @@ exports.login = async (req,res) => {
     let salt;
     let password;
     const exists = await models.user.findAll({
-        attributes: ['password',  'salt']
+        attributes: ['password',  'salt'],
         where: {
             email: {
                 [models.Sequelize.Op.eq]: body.email
