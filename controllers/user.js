@@ -22,9 +22,7 @@ exports.signup = async (req,res) => {
     let salt;
     let password;
     let user = null;
-    console.log(!exists)
-    if (!exists){
-        console.log("here")
+    if (!exists.length){
         salt = await crypto.randomBytes(12).toString('hex').slice(0,12);
         if (body.password) {
             password = await crypto.createHmac('sha256',salt).update(body.password).digest('hex');
@@ -36,7 +34,6 @@ exports.signup = async (req,res) => {
                     password: password,
                     salt: salt
                 })
-                console.log(password, user, salt)
             }
         }else{
             res.send({
