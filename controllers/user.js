@@ -75,7 +75,7 @@ exports.login = async (req,res) => {
             password = await crypto.createHmac('sha256',exists[0].salt).update(body.password).digest('hex');
             if (password == exists[0].password){
                 user = exists[0].id
-                const token = jwt.sign(user,config.jwtsecret,{expiresIn: '7d'})
+                const token = jwt.sign({user},config.jwtsecret,{expiresIn: '7d'})
                 res.cookie('authcookie', token,{httpOnly:true})
             }
         }else{
