@@ -48,3 +48,50 @@ exports.signup = async (req,res) => {
     res.send()
     
 }
+
+exports.login = async (req,res) => {
+    const body = req.body
+    if (!body || !body.email ){
+        res.send({
+            Success: false,
+            Email: null
+        })
+        return 0
+    }
+    let salt;
+    let password;
+    const exists = await models.user.findAll({
+        attributes: ['password',  'salt']
+        where: {
+            email: {
+                [models.Sequelize.Op.eq]: body.email
+            }
+        }
+    })
+    let user = null;
+    // if (!exists.length){
+    //     salt = await crypto.randomBytes(12).toString('hex').slice(0,12);
+    //     if (body.password) {
+    //         password = await crypto.createHmac('sha256',salt).update(body.password).digest('hex');
+    //         if(body.email && body.firstname && body.lastname){
+    //             user = await models.user.create({
+    //                 firstname: body.firstname,
+    //                 lastname: body.lastname,
+    //                 email: body.email,
+    //                 password: password,
+    //                 salt: salt
+    //             })
+    //         }
+    //     }else{
+    //         res.send({
+    //             Success: false,
+    //             Password: null
+    //         })
+    //         return 0
+    //     }
+    // }
+
+    res.json({exists})
+    res.send()
+    
+}
