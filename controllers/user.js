@@ -21,10 +21,20 @@ exports.signup = async (req,res) => {
     })
     let salt;
     let password;
+    let user = null;
     if (!exists){
         salt = await crypto.randomBytes(12).toString('hex').slice(0,12);
         if (body.password) {
             password = await crypto.createHmac('sha256',salt).update(body.password).digest('hex');
+            if(body.email && body.firstname && body.lastname){
+                user = await models.user.create({
+                    firstname: body.firstname,
+                    lastname: body.lastname,
+                    email: body.email,
+                    password: password,
+                    salt: salt
+                })
+            }
         }else{
             res.send({
                 Success: false,
@@ -33,16 +43,7 @@ exports.signup = async (req,res) => {
             return 0
         }
     }
-    let user = null
-    if(body.email && body.firstname && body.lastname){
-        user = await models.user.create({
-            firstname: body.firstname,
-            lastname: body.lastname,
-            email: body.email,
-            password: password,
-            salt: salt
-        })
-    }
+
     res.json({user})
     res.send()
     
