@@ -10,13 +10,13 @@ exports.signup = async (req,res) => {
             Success: false
         })
     }
-    console.log(models.Sequelize)
-//     const exists = await models.user.findAll({
-//         where: {
-//             email: {
-//                 [models.sequelize.Op.eq]: body.email
-//             }
-//         }
-// })
+
+    const exists = await models.user.findAll({
+        where: {
+            email: {
+                [models.Sequelize.Op.eq]: body.email
+            }
+        }
+})
     res.send("exists")
 }
