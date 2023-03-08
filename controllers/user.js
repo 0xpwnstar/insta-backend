@@ -51,7 +51,7 @@ exports.signup = async (req,res) => {
     
 }
 
-export.authorize = async (req, res) => {
+exports.authorize = async (req, res) => {
     res.send(req.cookie)
 }
 
