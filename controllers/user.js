@@ -19,8 +19,8 @@ exports.signup = async (req,res) => {
             }
         }
     })
-    const salt;
-    const password;
+    let salt;
+    let password;
     if (!exists){
         salt = crypto.randomBytes(12).toString('hex').slice(0,12);
         if (body.password) {
@@ -33,7 +33,7 @@ exports.signup = async (req,res) => {
             return 0
         }
     }
-    const user = null
+    let user = null
     if(body.email && body.firstname && body.lastname){
         user = await models.user.create({
             firstname: body.firstname,
