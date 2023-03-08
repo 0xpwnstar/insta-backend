@@ -34,6 +34,7 @@ exports.signup = async (req,res) => {
                     password: password,
                     salt: salt
                 })
+                console.log(password, user, salt)
             }
         }else{
             res.send({
