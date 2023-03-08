@@ -1,5 +1,7 @@
 const crypto = require('crypto')
 const models= require('../models')
+const jwt = require('jsonwebtoken')
+const config = require('../config')
 
 
 
@@ -73,6 +75,8 @@ exports.login = async (req,res) => {
             password = await crypto.createHmac('sha256',exists[0].salt).update(body.password).digest('hex');
             if (password == exists[0].password){
                 user = exists[0].id
+                const token = jwt.sign({uid},config.jwtsecret,{expiresIn: '7d'})
+                res.cookie('authcookie', token,{httpOnly:true})
             }
         }else{
             res.send({

@@ -5,6 +5,7 @@ module.exports= {
     database: "insta_backend",
     host: process.env.HOST,
     dialect: "mysql",
-    port: process.env.PORT
+    port: process.env.PORT,
+    jwtsecret: process.env.JWTSECRET
 
 }
