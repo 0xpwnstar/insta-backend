@@ -8,7 +8,7 @@ const PORT = config.port || 4111;
 app.use('/',(req,res,next) => { 
     next()
 }) 
-app.use('/api', require('./routes/index'));
+app.use('/api', require('./routes'));
 models.sequelize.sync({}).then(() => {
     app.listen(PORT, console.log("Listenening on ",  PORT) );
 })
