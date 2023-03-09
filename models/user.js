@@ -30,10 +30,11 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     );
-
-    User.hasMany(Follow,{
-        foreignKey: ['userId', 'followingId'],
-        onDelete: 'CASCADE'
-    })
+    User.associate = (models) => {
+        User.hasMany(models.Follow,{
+            foreignKey: ['userId', 'followingId'],
+            onDelete: 'CASCADE'
+        })
+    }
     return User;
 }
