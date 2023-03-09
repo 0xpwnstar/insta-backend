@@ -10,6 +10,7 @@ let uid = null
 router.post('/',async (req, res, next) =>{
     uid = await authorize(req,res)
     if (uid){
+        res.json({uid})
         next('route')
     } else next()
 },(req, res, next) =>{
@@ -17,7 +18,7 @@ router.post('/',async (req, res, next) =>{
 })
 
 router.post('/follow', async (req, res, next) => {
-    res.send(uid.user)
+    res.send()
 })
 
 module.exports = router;
