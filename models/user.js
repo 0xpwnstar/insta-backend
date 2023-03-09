@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     );
 
     User.hasMany(Follow,{
-        foreignKey: ['id', 'following'],
+        foreignKey: ['userId', 'followingId'],
         onDelete: 'CASCADE'
     })
     return User;

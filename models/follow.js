@@ -1,17 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
     const Follow = sequelize.define(
         'follow',{
-            id: {
-                DataTypes.INTEGER.UNSIGNED
-            }
-            following: {
-                DataTypes.INTEGER.UNSIGNED
+            userId: {
+                type: DataTypes.INTEGER.UNSIGNED
+            },
+            followingId: {
+                type: DataTypes.INTEGER.UNSIGNED
             }
         }
     )
 
     Follow.belongsTo(User,{
-        foreignKey: ['userId', 'following'],
+        foreignKey: ['userId', 'followingId'],
         onDelete: 'CASCADE'
     })
 
