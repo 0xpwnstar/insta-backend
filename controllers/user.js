@@ -52,13 +52,19 @@ exports.signup = async (req,res) => {
 }
 
 exports.authorize = async (req, res) => {
+    let decoded = null
     if (req.cookies.authcookie){
-        const decoded = jwt.verify(req.cookies.authcookie, config.jwtsecret)
-        res.send(decoded)
+        try {
+            decoded = await jwt.verify(req.cookies.authcookie, config.jwtsecret)
+            res.send(decoded)
+        }catch (error) {
+            res.status(401).send({error})
+        }
     }
     else {
         res.status(401).send()
     }
+    return decoded
 }
 
 exports.login = async (req,res) => {
