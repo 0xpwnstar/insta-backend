@@ -52,7 +52,7 @@ exports.signup = async (req,res) => {
 }
 
 exports.authorize = async (req, res) => {
-    if (req.cookies.authcookieokie){
+    if (req.cookies.authcookie){
         const decoded = jwt.verify(req.cookies.authcookie, config.jwtsecret)
         res.send(decoded)
     }
