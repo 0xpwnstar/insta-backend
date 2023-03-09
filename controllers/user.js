@@ -56,7 +56,6 @@ exports.authorize = async (req, res) => {
     if (req.cookies.authcookie){
         try {
             decoded = await jwt.verify(req.cookies.authcookie, config.jwtsecret)
-            res.send(decoded)
         }catch (error) {
             res.status(401).send({error})
         }
