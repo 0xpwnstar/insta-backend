@@ -10,6 +10,7 @@ let uid = null
 router.post('/',async (req, res, next) =>{
     uid = await authorize(req,res)
     if (uid){
+        console.log(uid)
         res.json({uid})
         next('route')
     } else next()
