@@ -12,9 +12,9 @@ router.post('/(.*)',async (req, res, next) =>{
     if (uid){
         res.json({uid})
         next('route')
-    } else next()
+    } else res.json({Success: false})
 },(req, res, next) =>{
-    res.send({Success: false})
+    res.json({Success: false})
 })
 
 router.post('/follow', async (req, res, next) => {
