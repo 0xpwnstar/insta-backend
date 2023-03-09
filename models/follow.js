@@ -9,12 +9,6 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     )
-    Follow.associate = (models) => {
-        Follow.belongsTo(models.User,{
-            foreignKey: ['userId', 'followingId'],
-            onDelete: 'CASCADE'
-        })
-    }
 
 
     return Follow

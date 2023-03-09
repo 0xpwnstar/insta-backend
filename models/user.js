@@ -36,5 +36,11 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE'
         })
     }
+    models.Follow.associate = (models) => {
+        models.Follow.belongsTo(models.User,{
+            foreignKey: ['userId', 'followingId'],
+            onDelete: 'CASCADE'
+        })
+    }
     return User;
 }
