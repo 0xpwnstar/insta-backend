@@ -7,10 +7,9 @@ router.get('/', (req, res) => res.send("You are visiting Mars "))
 router.post('/signup',signup)
 router.post('/login',login)
 let uid = null
-router.post('/',async (req, res, next) =>{
+router.post('/(.*)',async (req, res, next) =>{
     uid = await authorize(req,res)
     if (uid){
-        console.log(uid)
         res.json({uid})
         next('route')
     } else next()
