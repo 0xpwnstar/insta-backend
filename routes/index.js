@@ -10,7 +10,7 @@ let uid = null
 router.use('/',async (req, res, next) =>{
     uid = await authorize(req,res)
     if (uid){
-        return 
+        return next('route')
     } else next()
 },(req, res, next) =>{
     res.send({Success: false})
