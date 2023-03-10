@@ -14,7 +14,7 @@ exports.signup = async (req,res) => {
         return 0
     }
 
-    const exists = await models.user.findAll({
+    const exists = await models.user.findOne({
         where: {
             email: {
                 [models.Sequelize.Op.eq]: body.email
