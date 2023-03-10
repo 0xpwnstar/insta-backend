@@ -13,7 +13,6 @@ router.post('*',async (req, res, next) =>{
     let body = req.body
     uid = await authorize(req,res)
     if (uid.user == body.user){
-        res.json({uid})
         next('route')
     } else res.json({Success: false})
 },(req, res, next) =>{
