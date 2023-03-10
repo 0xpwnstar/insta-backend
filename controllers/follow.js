@@ -19,6 +19,12 @@ exports.followUser = async (req, res) => {
                 followingId: follow
             })
             return res.json({ followActivity }).send()
+        }else {
+            const deleteActivity = await models.follow.destroy({
+                userId: user,
+                followingId: follow
+            })
+            return res.json({ deleteActivity }).send()         
         }
     }
     res.send({
