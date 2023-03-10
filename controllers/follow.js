@@ -21,8 +21,12 @@ exports.followUser = async (req, res) => {
             return res.json({ followActivity }).send()
         }else {
             const deleteActivity = await models.follow.destroy({
-                userId: user,
-                followingId: follow
+                where: {
+                    [models.Sequelize.Op.and]: {
+                        userId: user,
+                        followingId: follow
+                    }
+                }
             })
             return res.json({ deleteActivity }).send()         
         }
