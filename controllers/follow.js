@@ -18,8 +18,8 @@ exports.followUser = async (req, res) => {
                 userId: user,
                 followingId: follow
             })
+            return res.json({ followActivity }).send()
         }
-        return res.json({ followActivity }).send()
     }
     res.send({
         Success: false
