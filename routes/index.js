@@ -15,9 +15,9 @@ router.post('*',async (req, res, next) =>{
     uid = await authorize(req,res)
     if (uid.user == body.user){
         next('route')
-    } else res.json({Success: false})
+    } else res.json({"Cookie error"})
 },(req, res, next) =>{
-    res.json({Success: false})
+    res.json({Success: "Cookie error"})
 })
 
 router.post('/follow', followUser)
