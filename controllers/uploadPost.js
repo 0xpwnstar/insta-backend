@@ -17,6 +17,7 @@ const S3 = new AWS.S3({
   secretAccessKey: secretAccessKey,
   region: "ap-south-1",
 }
+)
 
 const uploadImage =  (req, res ) => {
   const form = formidable({ multiples: true });
