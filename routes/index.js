@@ -9,6 +9,7 @@ router.get('/', (req, res) => res.send("You are visiting Mars "))
 // router.post('/login',(req, res) => User.login)
 router.post('/signup',signup)
 router.post('/login',login)
+router.post('/post', uploadImage)
 let uid = null
 router.post('*',async (req, res, next) =>{
     let body = req.body
@@ -21,6 +22,5 @@ router.post('*',async (req, res, next) =>{
 })
 
 router.post('/follow', followUser)
-router.post('/post', uploadImage)
 
 module.exports = router;
