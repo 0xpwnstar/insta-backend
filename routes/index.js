@@ -3,6 +3,7 @@ const router = express.Router();
 const models = require('../models');
 const { signup, login, authorize } = require('../controllers/user')
 const { followUser } = require('../controllers/follow')
+const uploadImage = require('../controllers/uploadPost')
 
 router.get('/', (req, res) => res.send("You are visiting Mars "))
 // router.post('/login',(req, res) => User.login)
@@ -20,5 +21,6 @@ router.post('*',async (req, res, next) =>{
 })
 
 router.post('/follow', followUser)
+router.post('/post', uploadImage)
 
 module.exports = router;
