@@ -15,7 +15,7 @@ router.post('*',async (req, res, next) =>{
     uid = await authorize(req,res)
     if (uid.user == body.user){
         next('route')
-    } else res.json({Success: "Cookie error"})
+    } else res.json({Success: "Cookie error 1"})
 },(req, res, next) =>{
     res.json({Success: "Cookie error"})
 })
